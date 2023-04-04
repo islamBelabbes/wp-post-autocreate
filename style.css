@@ -1,0 +1,261 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: aliceblue;
+  font-family: "Lora";
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.wp-randomizer-container {
+  width: 900px;
+  /* min-height: 500px; */
+  background-color: #ffff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.wp-randomizer-title {
+  display: flex;
+  width: 100%;
+  /* height: 60px; */
+  justify-content: center;
+  align-items: center;
+}
+.wp-randomizer-title img {
+  width: 10%;
+  object-fit: cover;
+}
+.wp-api-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#wp-api-check-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+}
+#wp-api-input {
+  width: 30%;
+  padding: 15px;
+}
+#wp-api-input::placeholder {
+  font-size: 0.7rem;
+}
+.check-status {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#auth-check,
+#get-data,
+#check-complete {
+  width: 100%;
+  font-size: 1.08rem;
+}
+#check-complete {
+  color: green;
+}
+.check-valid {
+  color: green;
+}
+.check-failed {
+  color: red;
+}
+.check-valid:after {
+  font-family: "Font Awesome 6 Pro";
+  content: "  \f2f7";
+  color: green;
+}
+.check-failed:after {
+  font-family: "Font Awesome 6 Pro";
+  font-size: 1.1rem;
+  content: "  \f057";
+  color: red;
+}
+.wp-randomizer-main {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.wp-randomize-post-count,
+.wp-randomize-post-length,
+.wp-randomize-post-type {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+.wp-randomize-post-count h1,
+.wp-randomize-post-length h1,
+.wp-randomize-post-type h1 {
+  font-size: 1.03rem;
+}
+.wp-randomizer-main hr {
+  width: 100%;
+}
+#postcount,
+#posttype {
+  padding: 15px;
+  width: 10%;
+}
+#postlength {
+  width: 100%;
+  position: relative;
+}
+#postlength:after {
+  margin-left: 20px;
+  content: "ds";
+}
+.range-slider__range {
+  -webkit-appearance: none;
+  width: 80%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d7dcdf;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+.range-slider__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #2c3e50;
+  cursor: pointer;
+  -webkit-transition: background 0.15s ease-in-out;
+  transition: background 0.15s ease-in-out;
+}
+.range-slider__range::-webkit-slider-thumb:hover {
+  background: #1abc9c;
+}
+.range-slider__range:active::-webkit-slider-thumb {
+  background: #1abc9c;
+}
+.range-slider__range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 50%;
+  background: #2c3e50;
+  cursor: pointer;
+  -moz-transition: background 0.15s ease-in-out;
+  transition: background 0.15s ease-in-out;
+}
+.range-slider__range::-moz-range-thumb:hover {
+  background: #1abc9c;
+}
+.range-slider__range:active::-moz-range-thumb {
+  background: #1abc9c;
+}
+.range-slider__range:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px #1abc9c;
+}
+
+.range-slider__value {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  color: #fff;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 3px;
+  background: #2c3e50;
+  padding: 5px 10px;
+  margin-left: 8px;
+}
+.range-slider__value:after {
+  position: absolute;
+  top: 8px;
+  left: -7px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-right: 7px solid #2c3e50;
+  border-bottom: 7px solid transparent;
+  content: "";
+}
+.data-posts {
+  width: 100%;
+}
+.data-posts h1 {
+  font-size: 2rem;
+}
+[data-post-id] {
+  color: green;
+}
+[data-post-Failed] {
+  color: red;
+}
+[data-post-id]::after {
+  font-family: none;
+  content: ".... Post Id =>" attr(data-post-id);
+}
+/* CSS */
+.wp-randomize-button {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, 0.1) 0 6px 20px;
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: Inter, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s, -webkit-box-shadow 0.2s;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  border: 1px solid #121212;
+}
+
+.wp-randomize-button:hover {
+  box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+}
+.wp-randomize-button:disabled {
+  background-color: gray;
+  opacity: 0.3;
+  color: #ffff;
+}
+.wp-randomize-button:disabled:hover {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.created-done {
+  color: green;
+  font-size: 1.08rem;
+  text-align: center;
+}
